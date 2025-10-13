@@ -10,23 +10,23 @@ const Index = () => {
   const portfolioItems = [
     {
       image: tattoo1,
-      title: "Black & Grey Realism",
-      description: "Fierce lion portrait with intricate details"
+      title: "Religious Realism",
+      description: "Sacred crucifixion back piece with intricate details"
     },
     {
       image: tattoo2,
-      title: "Neo-Traditional Dragon",
-      description: "Vibrant Japanese dragon with bold colors"
+      title: "Blue-Eyed Tiger",
+      description: "Fierce tiger portrait with striking blue eyes"
     },
     {
       image: tattoo3,
-      title: "Geometric Mandala",
-      description: "Sacred geometry with precise patterns"
+      title: "Vibrant Phoenix",
+      description: "Colorful phoenix with dynamic flames and feathers"
     },
     {
       image: tattoo4,
-      title: "Realistic Rose",
-      description: "Photorealistic rose with thorns and droplets"
+      title: "Guardian Angel Sleeve",
+      description: "Black & grey realism with stairs to heaven"
     }
   ];
 
