@@ -5,7 +5,7 @@ const SocialLinks = () => {
   return (
     <div className="fixed bottom-8 right-8 z-40 flex flex-col gap-3">
       <a
-        href="https://www.tiktok.com/@ronitattoo"
+        href="https://www.tiktok.com/@ronitattoo_artist"
         target="_blank"
         rel="noopener noreferrer"
         className="transition-smooth"
@@ -26,7 +26,7 @@ const SocialLinks = () => {
       </a>
       
       <a
-        href="https://www.instagram.com/ronitattoo"
+        href="https://www.instagram.com/ronitattoo_artist"
         target="_blank"
         rel="noopener noreferrer"
         className="transition-smooth"
