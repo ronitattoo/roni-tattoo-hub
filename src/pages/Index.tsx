@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import SocialLinks from "@/components/SocialLinks";
 import PortfolioCard from "@/components/PortfolioCard";
+import Hero from "@/components/Hero";
 import tattoo1 from "@/assets/tattoo1.jpg";
 import tattoo2 from "@/assets/tattoo2.jpg";
 import tattoo3 from "@/assets/tattoo3.jpg";
@@ -36,6 +37,7 @@ const Index = () => {
       <SocialLinks />
       
       <div className="snap-container h-screen overflow-y-scroll">
+        <Hero />
         {portfolioItems.map((item, index) => (
           <PortfolioCard
             key={index}
