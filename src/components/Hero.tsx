@@ -35,7 +35,7 @@ const Hero = () => {
           <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary glow-effect">
             <img 
               src={roniProfile} 
-              alt="Erjon Lami Roni Tattoo Artist - Award-winning international tattoo artist" 
+              alt="Erjon Lami Roni Tattoo Artist - Professional international tattoo artist" 
               className="w-full h-full object-cover"
             />
           </div>
@@ -51,7 +51,7 @@ const Hero = () => {
             ERJON LAMI
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-2 font-semibold">
-            Roni Tattoo Artist | Award-Winning Professional
+            Roni Tattoo Artist | Professional Tattoo Artist
           </p>
           <p className="text-base md:text-lg text-muted-foreground/90 mb-2">
             Realistic Black & Grey Tattoos • Neo-Traditional Designs

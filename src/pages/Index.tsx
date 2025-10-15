@@ -11,8 +11,8 @@ const Index = () => {
   const portfolioItems = [
     {
       image: tattoo1,
-      title: "Award-Winning Realistic Tattoo Art",
-      description: "Professional black & grey realism by Roni Tattoo Artist - Athens Convention award winner"
+      title: "Realistic Tattoo Art",
+      description: "Professional black & grey realism by Roni Tattoo Artist specializing in detailed artwork"
     },
     {
       image: tattoo2,
@@ -27,7 +27,7 @@ const Index = () => {
     {
       image: tattoo4,
       title: "Professional Tattoo Studio Portfolio",
-      description: "Expert custom tattoo designs by award-winning artist Roni Tattoo - Piraeus, Greece"
+      description: "Expert custom tattoo designs by Roni Tattoo Artist - Piraeus, Greece"
     }
   ];
 
