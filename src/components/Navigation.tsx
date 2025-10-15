@@ -6,31 +6,31 @@ const Navigation = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border" aria-label="Main navigation">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
+        <Link to="/" className="text-2xl font-bold gradient-primary bg-clip-text text-transparent" aria-label="Roni Tattoo Artist Home">
           Roni Tattoo
         </Link>
         
         <div className="flex items-center gap-4">
-          <Link to="/">
+          <Link to="/" aria-label="View portfolio">
             <Button
               variant={location.pathname === "/" ? "default" : "ghost"}
               size="sm"
               className="gap-2"
             >
-              <Home className="h-4 w-4" />
+              <Home className="h-4 w-4" aria-hidden="true" />
               <span className="hidden sm:inline">Portfolio</span>
             </Button>
           </Link>
           
-          <Link to="/about">
+          <Link to="/about" aria-label="About Roni Tattoo Artist">
             <Button
               variant={location.pathname === "/about" ? "default" : "ghost"}
               size="sm"
               className="gap-2"
             >
-              <User className="h-4 w-4" />
+              <User className="h-4 w-4" aria-hidden="true" />
               <span className="hidden sm:inline">About</span>
             </Button>
           </Link>

@@ -11,23 +11,23 @@ const Index = () => {
   const portfolioItems = [
     {
       image: tattoo1,
-      title: "Religious Realism",
-      description: "Sacred crucifixion back piece with intricate details"
+      title: "Award-Winning Realistic Tattoo Art",
+      description: "Professional black & grey realism by Roni Tattoo Artist - Athens Convention award winner"
     },
     {
       image: tattoo2,
-      title: "Blue-Eyed Tiger",
-      description: "Fierce tiger portrait with striking blue eyes"
+      title: "Custom Neo-Traditional Design",
+      description: "Unique tattoo artwork combining traditional and modern techniques by Erjon Lami"
     },
     {
       image: tattoo3,
-      title: "Vibrant Phoenix",
-      description: "Colorful phoenix with dynamic flames and feathers"
+      title: "International Quality Tattoo Work",
+      description: "High-quality realistic tattoo art serving clients from USA, UK, Germany, and worldwide"
     },
     {
       image: tattoo4,
-      title: "Guardian Angel Sleeve",
-      description: "Black & grey realism with stairs to heaven"
+      title: "Professional Tattoo Studio Portfolio",
+      description: "Expert custom tattoo designs by award-winning artist Roni Tattoo - Piraeus, Greece"
     }
   ];
 
@@ -36,7 +36,7 @@ const Index = () => {
       <Navigation />
       <SocialLinks />
       
-      <div className="snap-container h-screen overflow-y-scroll">
+      <main className="snap-container h-screen overflow-y-scroll">
         <Hero />
         {portfolioItems.map((item, index) => (
           <PortfolioCard
@@ -46,7 +46,7 @@ const Index = () => {
             description={item.description}
           />
         ))}
-      </div>
+      </main>
     </div>
   );
 };
