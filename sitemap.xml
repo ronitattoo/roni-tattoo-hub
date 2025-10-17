@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://ronitattoo.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Κύριες σελίδες -->
+  <url>
+    <loc>https://ronitattoo.com/gallery</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://ronitattoo.com/contact</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Εικόνες tattoo -->
+  <url><loc>https://ronitattoo.com/01-portrait-arm.jpg</loc></url>
+  <url><loc>https://ronitattoo.com/02-backpiece.jpg</loc></url>
+  <url><loc>https://ronitattoo.com/03-roses-clock.jpg</loc></url>
+  <url><loc>https://ronitattoo.com/04-action-scene.jpg</loc></url>
+  <url><loc>https://ronitattoo.com/05-scarface.jpg</loc></url>
+  <url><loc>https://ronitattoo.com/06-bronx-tale.jpg</loc></url>
+
+</urlset>
