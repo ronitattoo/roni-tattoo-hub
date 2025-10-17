@@ -2,3 +2,15 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ronitattoo.com/sitemap.xml
+
+# SEO directives
+User-agent: Googlebot
+Disallow: /private/
+Crawl-delay: 2
+
+User-agent: Bingbot
+Disallow: /temp/
+Crawl-delay: 2
+
+# Shortcuts
+Host: https://ronitattoo.com
