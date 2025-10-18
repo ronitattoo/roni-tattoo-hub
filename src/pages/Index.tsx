@@ -39,6 +39,7 @@ const Index = () => {
       
       <main className="snap-container h-screen overflow-y-scroll">
         <Hero />
+        <AITattooDesigner />
         {portfolioItems.map((item, index) => (
           <PortfolioCard
             key={index}
@@ -47,7 +48,6 @@ const Index = () => {
             description={item.description}
           />
         ))}
-        <AITattooDesigner />
       </main>
     </div>
   );
