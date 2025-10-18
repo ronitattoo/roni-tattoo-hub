@@ -2,23 +2,16 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Sparkles, Download, Copy, Image, Settings2, Wand2 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+// === AI Tattoo Designer Config ===
+const PROXY_URL =
+  "https://script.google.com/macros/s/AKfycbyn1Sy5X5ZkaLajUvY07IxaBslzyIy1Mn4Vr4IK8GFBastuzEzsLcwFau8CPlOVHtLh/exec";
 
-const PROXY_URL = 'https://script.google.com/macros/s/AKfycbyn1Sy5X5ZkaLajUvY07IxaBslzyIy1Mn4Vr4IK8GFBastuzEzsLcwFau8CPlOVHtLh/exec';
-
-interface GeneratedImage {
-  base64: string;
-  index: number;
-}
-
-const AITattooDesigner = () => {
-  const [prompt, setPrompt] = useState("");
-  const [aspectRatio, setAspectRatio] = useState("1:1");
-  const [imageCount, setImageCount] = useState("1");
-  const [negative, setNegative] = useState("");
-  const [images, setImages] = useState<GeneratedImage[]>([]);
-  const [isGenerating, setIsGenerating] = useState(false);
-  const { toast } = useToast();
+const [prompt, setPrompt] = useState("");
+const [aspect, setAspect] = useState("1:1");
+const [count, setCount] = useState("1");
+const [negative, setNegative] = useState("");
+const [images, setImages] = useState<GeneratedImage[]>([]);
+const [loading, setLoading] = useState(false);
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
