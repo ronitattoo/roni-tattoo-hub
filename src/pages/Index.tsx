@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import SocialLinks from "@/components/SocialLinks";
 import PortfolioCard from "@/components/PortfolioCard";
 import Hero from "@/components/Hero";
+import AITattooDesigner from "@/components/AITattooDesigner";
 import tattoo1 from "@/assets/tattoo1.jpg";
 import tattoo2 from "@/assets/tattoo2.jpg";
 import tattoo3 from "@/assets/tattoo3.jpg";
@@ -46,6 +47,7 @@ const Index = () => {
             description={item.description}
           />
         ))}
+        <AITattooDesigner />
       </main>
     </div>
   );
