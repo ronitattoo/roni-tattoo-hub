@@ -1,1 +1,4 @@
 project_id = "vsxlrdnhmxhvdukzdgzr"
+
+[functions.generate-tattoo]
+verify_jwt = true

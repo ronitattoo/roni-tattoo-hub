@@ -37,16 +37,22 @@ const Index = () => {
       <Navigation />
       <SocialLinks />
       
-      <main className="snap-container h-screen overflow-y-scroll">
+      <main 
+        className="snap-container h-screen overflow-y-scroll" 
+        role="main"
+        aria-label="Roni Tattoo Artist Portfolio"
+      >
         <Hero />
-        {portfolioItems.map((item, index) => (
-          <PortfolioCard
-            key={index}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-          />
-        ))}
+        <section aria-label="Tattoo Portfolio Gallery">
+          {portfolioItems.map((item, index) => (
+            <PortfolioCard
+              key={index}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </section>
       </main>
     </div>
   );

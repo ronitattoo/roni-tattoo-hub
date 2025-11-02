@@ -1,3 +1,17 @@
+# Robots.txt for ronitattoo.com
 User-agent: *
 Allow: /
+Disallow: /auth
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://ronitattoo.com/sitemap.xml
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

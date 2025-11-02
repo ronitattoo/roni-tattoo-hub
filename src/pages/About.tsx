@@ -8,25 +8,29 @@ const About = () => {
       <Navigation />
       <SocialLinks />
       
-      <main className="container mx-auto px-4 pt-24 pb-16">
+      <main 
+        className="container mx-auto px-4 pt-24 pb-16"
+        role="main"
+        aria-label="About Roni Tattoo Artist"
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="mb-12 text-center">
+          <header className="mb-12 text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
-              Erjon Lami
+              Erjon Lami - Roni Tattoo Artist
             </h1>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground/80 mb-6">
-              Roni Tattoo
-            </h2>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-          </div>
+            <p className="text-xl md:text-2xl text-foreground/80 mb-6">
+              Professional International Tattoo Artist | Realistic Black & Grey Specialist
+            </p>
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full" aria-hidden="true"></div>
+          </header>
 
           <div className="space-y-8 animate-fade-in">
-            <section className="bg-card rounded-xl p-8 border border-border">
+            <article className="bg-card rounded-xl p-8 border border-border">
               <h2 className="text-2xl font-bold mb-4 text-primary">Professional Biography</h2>
               <div className="space-y-4 text-foreground/90 leading-relaxed">
                 <p>
@@ -76,7 +80,7 @@ const About = () => {
                   to the craft.
                 </p>
               </div>
-            </section>
+            </article>
 
             <section className="bg-card rounded-xl p-8 border border-border">
               <h2 className="text-2xl font-bold mb-4 text-primary">Awards & Recognition</h2>
