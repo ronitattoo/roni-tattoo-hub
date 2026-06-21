@@ -14,12 +14,16 @@ const DialogClose = DialogPrimitive.Close;
 
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> & {
+    variant?: "default" | "full";
+  }
+>(({ className, variant = "default", ...props }, ref) => (
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "fixed inset-0 z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      variant === "default" && "bg-black/80",
+      variant === "full" && "bg-black",
       className,
     )}
     {...props}
@@ -34,7 +38,7 @@ const DialogContent = React.forwardRef<
   }
 >(({ className, children, variant = "default", ...props }, ref) => (
   <DialogPortal>
-    <DialogOverlay />
+    <DialogOverlay variant={variant} />
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
