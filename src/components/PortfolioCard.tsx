@@ -61,7 +61,7 @@ const PortfolioCard = ({
           <DialogTitle>{title}</DialogTitle>
           {description && <DialogDescription>{description}</DialogDescription>}
         </DialogHeader>
-        <div className="relative flex-1 bg-black min-h-0">
+        <div className="relative w-full h-full bg-black">
           <iframe
             src={embedLink}
             title={title}
@@ -69,22 +69,26 @@ const PortfolioCard = ({
             allowFullScreen
             className="absolute inset-0 w-full h-full"
           />
-        </div>
-        <div className="p-4 bg-card border-t border-border shrink-0">
-          <h2 className="text-lg font-bold mb-1 line-clamp-2">{title}</h2>
-          {description && (
-            <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
-              {description}
-            </p>
-          )}
-          <a
-            href={shareUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-primary hover:underline"
-          >
-            View on TikTok →
-          </a>
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-white pointer-events-none">
+            <div className="pointer-events-auto">
+              <h2 className="text-base sm:text-lg font-bold mb-1 line-clamp-2 drop-shadow">
+                {title}
+              </h2>
+              {description && (
+                <p className="text-sm text-white/90 line-clamp-3 mb-2 drop-shadow">
+                  {description}
+                </p>
+              )}
+              <a
+                href={shareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-white underline hover:text-primary transition-colors"
+              >
+                View on TikTok →
+              </a>
+            </div>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
