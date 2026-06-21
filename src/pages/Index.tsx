@@ -9,6 +9,7 @@ interface TikTokVideo {
   id: string;
   title?: string;
   video_description?: string;
+  cover_image_url?: string;
   embed_link?: string;
   share_url?: string;
 }
@@ -43,19 +44,22 @@ const Index = () => {
       <SocialLinks />
 
       <main
-        className="snap-container h-screen overflow-y-scroll"
+        className="min-h-screen"
         role="main"
         aria-label="Roni Tattoo Artist Portfolio"
       >
         <Hero />
-        <section aria-label="Tattoo Portfolio Gallery - Latest TikTok videos">
+        <section
+          aria-label="Tattoo Portfolio Gallery - Latest TikTok videos"
+          className="px-4 pb-16"
+        >
           {loading && (
-            <div className="snap-item h-screen flex items-center justify-center text-muted-foreground">
+            <div className="h-64 flex items-center justify-center text-muted-foreground">
               Loading latest TikTok videos…
             </div>
           )}
           {!loading && videos.length === 0 && (
-            <div className="snap-item h-screen flex items-center justify-center text-muted-foreground px-6 text-center">
+            <div className="h-64 flex items-center justify-center text-muted-foreground px-6 text-center">
               Couldn't load TikTok videos right now. Visit{" "}
               <a
                 href="https://www.tiktok.com/@ronitattoo_artist"
@@ -68,21 +72,26 @@ const Index = () => {
               .
             </div>
           )}
-          {videos.map((video) => (
-            <PortfolioCard
-              key={video.id}
-              embedLink={
-                video.embed_link ??
-                `https://www.tiktok.com/player/v1/${video.id}?autoplay=0&loop=1`
-              }
-              shareUrl={
-                video.share_url ??
-                `https://www.tiktok.com/@ronitattoo_artist/video/${video.id}`
-              }
-              title={video.title || "Roni Tattoo Artist"}
-              description={video.video_description || ""}
-            />
-          ))}
+          {!loading && videos.length > 0 && (
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-1">
+              {videos.map((video) => (
+                <PortfolioCard
+                  key={video.id}
+                  coverImageUrl={video.cover_image_url}
+                  embedLink={
+                    video.embed_link ??
+                    `https://www.tiktok.com/player/v1/${video.id}?autoplay=0&loop=1`
+                  }
+                  shareUrl={
+                    video.share_url ??
+                    `https://www.tiktok.com/@ronitattoo_artist/video/${video.id}`
+                  }
+                  title={video.title || "Roni Tattoo Artist"}
+                  description={video.video_description || ""}
+                />
+              ))}
+            </div>
+          )}
         </section>
       </main>
     </div>
