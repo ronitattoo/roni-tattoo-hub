@@ -26,25 +26,10 @@ const Hero = () => {
           />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-8"
-        >
-          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden">
-            <img 
-              src={roniProfile} 
-              alt="Erjon Lami Roni Tattoo Artist - Professional international tattoo artist" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
-
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="text-center"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
