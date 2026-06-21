@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import {
@@ -18,6 +18,17 @@ interface PortfolioCardProps {
   coverImageUrl?: string;
 }
 
+function makePlayerUrl(embedLink: string) {
+  try {
+    const url = new URL(embedLink);
+    url.searchParams.set("autoplay", "1");
+    url.searchParams.set("mute", "0");
+    return url.toString();
+  } catch {
+    return embedLink;
+  }
+}
+
 const PortfolioCard = ({
   embedLink,
   shareUrl,
@@ -26,6 +37,7 @@ const PortfolioCard = ({
   coverImageUrl,
 }: PortfolioCardProps) => {
   const [open, setOpen] = useState(false);
+  const playerUrl = useMemo(() => makePlayerUrl(embedLink), [embedLink]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -63,7 +75,7 @@ const PortfolioCard = ({
         </DialogHeader>
         <div className="relative w-full h-full bg-black">
           <iframe
-            src={embedLink}
+            src={playerUrl}
             title={title}
             allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
             allowFullScreen
@@ -96,3 +108,4 @@ const PortfolioCard = ({
 };
 
 export default PortfolioCard;
+
