@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="snap-item h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-[80vh] flex items-center justify-center relative overflow-hidden py-12">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       
       <div className="relative z-10 flex flex-col items-center justify-center px-6 max-w-4xl mx-auto">
@@ -32,7 +32,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mb-8"
         >
-          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary glow-effect">
+          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden">
             <img 
               src={roniProfile} 
               alt="Erjon Lami Roni Tattoo Artist - Professional international tattoo artist" 
