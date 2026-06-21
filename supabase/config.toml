@@ -2,3 +2,6 @@ project_id = "vsxlrdnhmxhvdukzdgzr"
 
 [functions.generate-tattoo]
 verify_jwt = true
+
+[functions.list-tiktok-videos]
+verify_jwt = false
