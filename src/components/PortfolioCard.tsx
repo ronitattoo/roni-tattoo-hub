@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
 
 interface PortfolioCardProps {
-  image: string;
+  embedLink: string;
+  shareUrl: string;
   title: string;
   description: string;
 }
 
-const PortfolioCard = ({ image, title, description }: PortfolioCardProps) => {
+const PortfolioCard = ({
+  embedLink,
+  shareUrl,
+  title,
+  description,
+}: PortfolioCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -14,16 +20,32 @@ const PortfolioCard = ({ image, title, description }: PortfolioCardProps) => {
       transition={{ duration: 0.6 }}
       className="snap-item h-screen flex items-center justify-center p-4"
     >
-      <article className="relative max-w-md w-full h-[85vh] rounded-2xl overflow-hidden bg-card border border-border glow-effect">
-        <img
-          src={image}
-          alt={`${title} - Professional tattoo work by Roni Tattoo Artist Erjon Lami`}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent flex flex-col justify-end p-6">
-          <h2 className="text-2xl font-bold mb-2">{title}</h2>
-          <p className="text-muted-foreground">{description}</p>
+      <article className="relative max-w-md w-full h-[85vh] rounded-2xl overflow-hidden bg-card border border-border glow-effect flex flex-col">
+        <div className="relative flex-1 bg-black">
+          <iframe
+            src={embedLink}
+            title={title}
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+            loading="lazy"
+            className="absolute inset-0 w-full h-full"
+          />
+        </div>
+        <div className="p-4 bg-card/95 backdrop-blur border-t border-border">
+          <h2 className="text-lg font-bold mb-1 line-clamp-2">{title}</h2>
+          {description && (
+            <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
+              {description}
+            </p>
+          )}
+          <a
+            href={shareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-primary hover:underline"
+          >
+            View on TikTok →
+          </a>
         </div>
       </article>
     </motion.div>
