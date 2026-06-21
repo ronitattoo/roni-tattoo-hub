@@ -1,55 +1,86 @@
+import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import SocialLinks from "@/components/SocialLinks";
 import PortfolioCard from "@/components/PortfolioCard";
 import Hero from "@/components/Hero";
+import { supabase } from "@/integrations/supabase/client";
 
-import tattoo1 from "@/assets/tattoo1.jpg";
-import tattoo2 from "@/assets/tattoo2.jpg";
-import tattoo3 from "@/assets/tattoo3.jpg";
-import tattoo4 from "@/assets/tattoo4.jpg";
+interface TikTokVideo {
+  id: string;
+  title?: string;
+  video_description?: string;
+  embed_link?: string;
+  share_url?: string;
+}
 
 const Index = () => {
-  const portfolioItems = [
-    {
-      image: tattoo1,
-      title: "Realistic Tattoo Art",
-      description: "Professional black & grey realism by Roni Tattoo Artist specializing in detailed artwork"
-    },
-    {
-      image: tattoo2,
-      title: "Custom Neo-Traditional Design",
-      description: "Unique tattoo artwork combining traditional and modern techniques by Erjon Lami"
-    },
-    {
-      image: tattoo3,
-      title: "International Quality Tattoo Work",
-      description: "High-quality realistic tattoo art serving clients from USA, UK, Germany, and worldwide"
-    },
-    {
-      image: tattoo4,
-      title: "Professional Tattoo Studio Portfolio",
-      description: "Expert custom tattoo designs by Roni Tattoo Artist - Piraeus, Greece"
-    }
-  ];
+  const [videos, setVideos] = useState<TikTokVideo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke(
+          "list-tiktok-videos",
+        );
+        if (error) throw error;
+        if (active) setVideos((data?.videos as TikTokVideo[]) ?? []);
+      } catch (e) {
+        console.error("Failed to load TikTok videos", e);
+      } finally {
+        if (active) setLoading(false);
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <SocialLinks />
-      
-      <main 
-        className="snap-container h-screen overflow-y-scroll" 
+
+      <main
+        className="snap-container h-screen overflow-y-scroll"
         role="main"
         aria-label="Roni Tattoo Artist Portfolio"
       >
         <Hero />
-        <section aria-label="Tattoo Portfolio Gallery">
-          {portfolioItems.map((item, index) => (
+        <section aria-label="Tattoo Portfolio Gallery - Latest TikTok videos">
+          {loading && (
+            <div className="snap-item h-screen flex items-center justify-center text-muted-foreground">
+              Loading latest TikTok videos…
+            </div>
+          )}
+          {!loading && videos.length === 0 && (
+            <div className="snap-item h-screen flex items-center justify-center text-muted-foreground px-6 text-center">
+              Couldn't load TikTok videos right now. Visit{" "}
+              <a
+                href="https://www.tiktok.com/@ronitattoo_artist"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline ml-1"
+              >
+                @ronitattoo_artist
+              </a>
+              .
+            </div>
+          )}
+          {videos.map((video) => (
             <PortfolioCard
-              key={index}
-              image={item.image}
-              title={item.title}
-              description={item.description}
+              key={video.id}
+              embedLink={
+                video.embed_link ??
+                `https://www.tiktok.com/player/v1/${video.id}?autoplay=0&loop=1`
+              }
+              shareUrl={
+                video.share_url ??
+                `https://www.tiktok.com/@ronitattoo_artist/video/${video.id}`
+              }
+              title={video.title || "Roni Tattoo Artist"}
+              description={video.video_description || ""}
             />
           ))}
         </section>
