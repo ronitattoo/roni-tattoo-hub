@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import roniLogo from "@/assets/roni-logo.png";
-import roniProfile from "@/assets/roni-profile.png";
 
 const Hero = () => {
   const scrollToPortfolio = () => {
